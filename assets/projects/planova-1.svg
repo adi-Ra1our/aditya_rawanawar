@@ -1,0 +1,72 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 750' width='100%' height='100%'>
+  <rect width='1200' height='750' fill='#1A1C24'/>
+  <defs>
+    <pattern id='grid3' width='40' height='40' patternUnits='userSpaceOnUse'>
+      <path d='M 40 0 L 0 0 0 40' fill='none' stroke='#272A38' stroke-width='1'/>
+    </pattern>
+  </defs>
+  <rect width='1200' height='750' fill='url(#grid3)'/>
+
+  <!-- Top App Bar -->
+  <rect x='40' y='40' width='1120' height='55' rx='10' ry='10' fill='#232736' stroke='#363B52' stroke-width='2'/>
+  <circle cx='70' cy='67' r='7' fill='#FF5F56'/>
+  <circle cx='95' cy='67' r='7' fill='#FFBD2E'/>
+  <circle cx='120' cy='67' r='7' fill='#27C93F'/>
+  <text x='150' y='74' font-family='sans-serif' font-size='17' font-weight='bold' fill='#FFFFFF'>Planova <tspan font-weight='normal' fill='#9AA5CE'>· AI-Integrated Collaborative Project Workspace</tspan></text>
+  <rect x='980' y='53' width='160' height='28' rx='14' fill='#FACC00'/>
+  <text x='1000' y='72' font-family='sans-serif' font-size='12' font-weight='bold' fill='#161616'>+ New Task Sprint</text>
+
+  <!-- Left Kanban Columns -->
+  <!-- Col 1: To Do -->
+  <rect x='40' y='115' width='230' height='585' rx='10' fill='#1F2330' stroke='#363B52' stroke-width='1.5'/>
+  <text x='60' y='150' font-family='sans-serif' font-size='14' font-weight='bold' fill='#9AA5CE'>TO DO <tspan fill='#FACC00'>(3)</tspan></text>
+  <!-- Card -->
+  <rect x='55' y='170' width='200' height='100' rx='8' fill='#292E40' stroke='#3E4663' stroke-width='1'/>
+  <text x='70' y='198' font-family='sans-serif' font-size='13' font-weight='bold' fill='#FFFFFF'>Database Migration</text>
+  <text x='70' y='220' font-family='sans-serif' font-size='11' fill='#9AA5CE'>MongoDB replica set sync</text>
+  <rect x='70' y='235' width='70' height='18' rx='4' fill='#FF5F56' fill-opacity='0.2'/>
+  <text x='78' y='248' font-family='sans-serif' font-size='10' fill='#FF5F56'>High Priority</text>
+
+  <!-- Col 2: In Progress -->
+  <rect x='290' y='115' width='230' height='585' rx='10' fill='#1F2330' stroke='#363B52' stroke-width='1.5'/>
+  <text x='310' y='150' font-family='sans-serif' font-size='14' font-weight='bold' fill='#7AA2F7'>IN PROGRESS <tspan fill='#7AA2F7'>(2)</tspan></text>
+  <rect x='305' y='170' width='200' height='120' rx='8' fill='#292E40' stroke='#7AA2F7' stroke-width='1.5'/>
+  <text x='320' y='198' font-family='sans-serif' font-size='13' font-weight='bold' fill='#FFFFFF'>AI Chatbot Assistant</text>
+  <text x='320' y='220' font-family='sans-serif' font-size='11' fill='#9AA5CE'>Natural language task query</text>
+  <text x='320' y='238' font-family='sans-serif' font-size='11' fill='#9AA5CE'>and automated reminders</text>
+  <rect x='320' y='255' width='80' height='18' rx='4' fill='#7AA2F7' fill-opacity='0.2'/>
+  <text x='328' y='268' font-family='sans-serif' font-size='10' fill='#7AA2F7'>AI Engine</text>
+
+  <!-- Col 3: Done -->
+  <rect x='540' y='115' width='230' height='585' rx='10' fill='#1F2330' stroke='#363B52' stroke-width='1.5'/>
+  <text x='560' y='150' font-family='sans-serif' font-size='14' font-weight='bold' fill='#27C93F'>DONE <tspan fill='#27C93F'>(8)</tspan></text>
+  <rect x='555' y='170' width='200' height='90' rx='8' fill='#292E40' stroke='#3E4663' stroke-width='1'/>
+  <text x='570' y='198' font-family='sans-serif' font-size='13' font-weight='bold' fill='#FFFFFF'>Role-Based Auth (RBAC)</text>
+  <text x='570' y='220' font-family='sans-serif' font-size='11' fill='#9AA5CE'>JWT + bcrypt security</text>
+  <rect x='570' y='232' width='60' height='16' rx='4' fill='#27C93F' fill-opacity='0.2'/>
+  <text x='578' y='244' font-family='sans-serif' font-size='10' fill='#27C93F'>Complete</text>
+
+  <!-- Right: Planova AI Assistant Chat Panel -->
+  <rect x='790' y='115' width='370' height='585' rx='10' fill='#191C26' stroke='#FACC00' stroke-width='2'/>
+  <rect x='790' y='115' width='370' height='50' rx='10' ry='10' fill='#24283A'/>
+  <circle cx='820' cy='140' r='10' fill='#FACC00'/>
+  <text x='840' y='146' font-family='sans-serif' font-size='14' font-weight='bold' fill='#FFFFFF'>Planova AI Assistant</text>
+
+  <!-- Chat Messages -->
+  <!-- User Msg -->
+  <rect x='890' y='190' width='250' height='60' rx='10' fill='#2D3349'/>
+  <text x='905' y='215' font-family='sans-serif' font-size='12' fill='#FFFFFF'>What tasks are due this week</text>
+  <text x='905' y='235' font-family='sans-serif' font-size='12' fill='#FFFFFF'>for the backend milestone?</text>
+
+  <!-- AI Reply -->
+  <rect x='810' y='265' width='330' height='130' rx='10' fill='#232738' stroke='#3E4663' stroke-width='1'/>
+  <text x='825' y='292' font-family='sans-serif' font-size='12' font-weight='bold' fill='#FACC00'>Planova AI:</text>
+  <text x='825' y='315' font-family='sans-serif' font-size='12' fill='#C0CAF5'>You have 2 pending deliverables:</text>
+  <text x='825' y='340' font-family='sans-serif' font-size='12' fill='#C0CAF5'>1. MongoDB replica sync (Tomorrow, 5 PM)</text>
+  <text x='825' y='365' font-family='sans-serif' font-size='12' fill='#C0CAF5'>2. Deadline notification webhook (Friday)</text>
+  <text x='825' y='385' font-family='sans-serif' font-size='11' fill='#27C93F'>✔ Automated reminder emails scheduled.</text>
+
+  <!-- AI Query Input Box -->
+  <rect x='810' y='630' width='330' height='50' rx='8' fill='#232738' stroke='#3E4663' stroke-width='1'/>
+  <text x='830' y='660' font-family='sans-serif' font-size='12' fill='#7982A6'>Ask Planova AI anything about tasks...</text>
+</svg>

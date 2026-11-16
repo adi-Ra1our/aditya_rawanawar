@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <rect width="1200" height="750" fill="#14161F"/>
+  <defs>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#222533" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#g)"/>
+  <rect x="50" y="50" width="1100" height="55" rx="10" fill="#1F2332" stroke="#33384D" stroke-width="2"/>
+  <circle cx="80" cy="77" r="7" fill="#FF5F56"/>
+  <circle cx="105" cy="77" r="7" fill="#FFBD2E"/>
+  <circle cx="130" cy="77" r="7" fill="#27C93F"/>
+  <text x="160" y="84" font-family="monospace" font-size="14" fill="#A9B1D6">Role-Based Auth & Real-Time Sync</text>
+  
+  <rect x="50" y="130" width="1100" height="570" rx="12" fill="#181B26" stroke="#33384D" stroke-width="2"/>
+  <text x="85" y="180" font-family="sans-serif" font-size="22" font-weight="bold" fill="#7AA2F7">ROLE-BASED AUTH & REAL-TIME SYNC</text>
+  <text x="85" y="215" font-family="sans-serif" font-size="15" fill="#A9B1D6">Enterprise Multi-User Security and Deadline Alert Engine</text>
+  
+  <rect x="85" y="240" width="1030" height="430" rx="8" fill="#12131A" stroke="#25293A" stroke-width="1.5"/>
+  <foreignObject x="105" y="260" width="990" height="390">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="color: #C0CAF5; font-family: monospace; font-size: 13.5px; line-height: 1.65; white-space: pre-wrap;">// Express.js &amp; MongoDB JWT Authentication Middleware
+import jwt from "jsonwebtoken";
+import { UserRole } from "../models/user.model.js";
+
+export const requireRole = (allowedRoles: UserRole[]) =&gt; {
+  return async (req: AuthRequest, res: Response, next: NextFunction) =&gt; {
+    try {
+      const token = req.headers.authorization?.split(" ")[1];
+      if (!token) return res.status(401).json({ error: "Access token required" });
+
+      const decoded = jwt.verify(token, process.env.JWT_SECRET!) as TokenPayload;
+      if (!allowedRoles.includes(decoded.role)) {
+        return res.status(403).json({ error: "Permission denied for this operation" });
+      }
+
+      req.user = decoded;
+      next();
+    } catch (err) {
+      return res.status(401).json({ error: "Invalid or expired token" });
+    }
+  };
+};
+
+// Automated Deadline Notification Scheduler
+cron.schedule("0 9 * * *", async () =&gt; {
+  const pendingTasks = await Task.find({
+    status: { $ne: "COMPLETED" },
+    dueDate: { $lte: new Date(Date.now() + 24 * 60 * 60 * 1000) }
+  }).populate("assignee");
+
+  await sendNotificationBatch(pendingTasks);
+});</div>
+  </foreignObject>
+</svg>

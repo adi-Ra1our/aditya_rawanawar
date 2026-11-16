@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cream">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Canvas — Aditya B Rawanawar</title>
+  <meta name="description" content="Spatial 2D interactive desk canvas of Aditya B Rawanawar — AI &amp; Machine Learning Engineer.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FACC00'/><text x='50' y='65' font-family='sans-serif' font-size='50' font-weight='900' text-anchor='middle' fill='%23161616'>AR</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="overflow: hidden;">
+
+  <!-- Viewport and Infinite Spatial Grid -->
+  <div id="viewport">
+    <div id="grid" aria-hidden="true"></div>
+
+    <!-- Floating Topbar -->
+    <div class="canvas-topbar">
+      <button id="btn-fit-all" type="button">Fit all</button>
+      <button id="btn-minimise-all" type="button">Minimise all</button>
+      <button id="btn-canvas-theme" type="button">Theme ▾</button>
+      <a href="index.html">The site ↗</a>
+      <button id="btn-sound-toggle" type="button">Sound 🔊</button>
+    </div>
+
+    <!-- Onboarding Guidance Card -->
+    <div class="canvas-onboarding">
+      <span class="canvas-onboarding__badge">1 OF 4</span>
+      <button id="onboard-skip" style="float: right; font-size: 0.8rem; font-weight: 700; color: var(--ink-subtle);">Skip</button>
+      <h3>This is a desk, not a page</h3>
+      <p>Drag the background to move around. Nothing scrolls here — everything is just somewhere in spatial space.</p>
+      <div class="canvas-onboarding__foot">
+        <span style="font-size: 0.8rem; color: var(--ink-subtle);">💡 Drag cards by their header</span>
+        <button id="onboard-next" class="btn btn--solid" style="padding: 6px 16px; font-size: 0.85rem;">Next</button>
+      </div>
+    </div>
+
+    <!-- Spatial 2D World with Draggable Cards -->
+    <div id="world">
+
+      <!-- 1. Hero Sticker Card -->
+      <div id="card-hero" class="canvas-card" style="left: -480px; top: -280px; width: 380px; z-index: 10;">
+        <div class="canvas-card__head" style="background-color: var(--accent);">
+          <span class="canvas-card__title">Aditya B Rawanawar</span>
+          <button type="button" class="canvas-card__close" aria-label="Close">✕</button>
+        </div>
+        <div class="canvas-card__body" style="text-align: center;">
+          <div style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--border); overflow: hidden; margin: 0 auto 16px; box-shadow: 2px 2px 0 0 var(--border);">
+            <img src="assets/pfp/aditya.jpg" alt="Aditya" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 4px;">Aditya B Rawanawar</h2>
+          <p style="font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 6px;">AI &amp; Machine Learning Engineer</p>
+          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-subtle); margin-bottom: 16px;">Bangalore, India · DSCE (CGPA 9.31)</p>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: var(--ink-muted); margin-bottom: 18px;">
+            Agentic AI pipelines, LLM systems, and high-throughput MLOps infrastructure.
+          </p>
+          <div style="display: flex; gap: 8px; justify-content: center;">
+            <a class="btn btn--solid" href="aditya-rawanawar-resume.pdf" download="Aditya_B_Rawanawar_Resume.pdf" style="padding: 6px 16px; font-size: 0.85rem;">Résumé PDF ↓</a>
+            <a class="btn btn--surface" href="index.html" style="padding: 6px 16px; font-size: 0.85rem;">Home ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Selected Work Card -->
+      <div id="card-work" class="canvas-card" style="left: -70px; top: -320px; width: 490px; z-index: 12;">
+        <div class="canvas-card__head" style="background-color: #A8E6A1;">
+          <span class="canvas-card__title">Selected Work (4 Projects)</span>
+          <button type="button" class="canvas-card__close" aria-label="Close">✕</button>
+        </div>
+        <div class="canvas-card__body">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <!-- Project 1 -->
+            <a href="work-autonomous-ai-ops.html" class="s-tool" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: 10px;">
+              <div>
+                <strong style="display: block; font-size: 0.95rem;">Autonomous AI Operations Analyst</strong>
+                <span style="font-size: 0.8rem; color: var(--ink-muted);">Edge Telemetry &amp; Ollama Anomaly Reasoning</span>
+              </div>
+              <span class="badge" style="font-size: 0.7rem;">01 / AI</span>
+            </a>
+
+            <!-- Project 2 -->
+            <a href="work-mlops-cancer-pipeline.html" class="s-tool" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: 10px;">
+              <div>
+                <strong style="display: block; font-size: 0.95rem;">MLOps Cancer Prediction Pipeline</strong>
+                <span style="font-size: 0.8rem; color: var(--ink-muted);">DVC, MLflow &amp; Docker CI/CD (ROC-AUC 0.916)</span>
+              </div>
+              <span class="badge" style="font-size: 0.7rem;">02 / MLOps</span>
+            </a>
+
+            <!-- Project 3 -->
+            <a href="work-planova.html" class="s-tool" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: 10px;">
+              <div>
+                <strong style="display: block; font-size: 0.95rem;">Planova Project Workspace</strong>
+                <span style="font-size: 0.8rem; color: var(--ink-muted);">React, Node.js &amp; Conversational AI Chatbot</span>
+              </div>
+              <span class="badge" style="font-size: 0.7rem;">03 / Full-Stack</span>
+            </a>
+
+            <!-- Project 4 -->
+            <a href="work-student-marks.html" class="s-tool" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: 10px;">
+              <div>
+                <strong style="display: block; font-size: 0.95rem;">Student Marks Management System</strong>
+                <span style="font-size: 0.8rem; color: var(--ink-muted);">Layered FastAPI Backend &amp; SQL Schemas</span>
+              </div>
+              <span class="badge" style="font-size: 0.7rem;">04 / Backend</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Experience & Education Card -->
+      <div id="card-experience" class="canvas-card" style="left: 450px; top: -250px; width: 480px; z-index: 11;">
+        <div class="canvas-card__head" style="background-color: #FFB4A2;">
+          <span class="canvas-card__title">Experience &amp; Education</span>
+          <button type="button" class="canvas-card__close" aria-label="Close">✕</button>
+        </div>
+        <div class="canvas-card__body">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- ADE DRDO -->
+            <div style="border-bottom: 1.5px dashed rgba(22, 22, 22, 0.15); padding-bottom: 12px;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-subtle);">June 2026 – September 2026</span>
+              <h4 style="font-size: 1.05rem; font-weight: 800; margin: 2px 0;">Agentic AI Intern — ADE, DRDO</h4>
+              <p style="font-size: 0.85rem; color: var(--ink-muted);">Built AI-driven HMI generator for mission-critical aircraft using Agentic AI, multi-agent RAG pipelines, and formal verification.</p>
+            </div>
+
+            <!-- Havells -->
+            <div style="border-bottom: 1.5px dashed rgba(22, 22, 22, 0.15); padding-bottom: 12px;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-subtle);">January 2026 – April 2026</span>
+              <h4 style="font-size: 1.05rem; font-weight: 800; margin: 2px 0;">AI Testing Intern — Havells India Limited</h4>
+              <p style="font-size: 0.85rem; color: var(--ink-muted);">Evaluated AI model behavior, inference precision, and edge-case failure modes across IoT hardware sensor suites.</p>
+            </div>
+
+            <!-- DSCE -->
+            <div>
+              <span class="badge" style="font-size: 0.7rem; margin-bottom: 4px;">Education</span>
+              <h4 style="font-size: 1.05rem; font-weight: 800; margin: 2px 0;">B.E. in AI &amp; ML — DSCE Bangalore</h4>
+              <p style="font-size: 0.85rem; color: var(--ink-muted);">CGPA: <strong>9.31 / 10.0</strong> (2023–2027). Pre-University: 95.6% · ICSE 10th: 93.4%.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Stack Card -->
+      <div id="card-stack" class="canvas-card" style="left: -480px; top: 120px; width: 440px; z-index: 9;">
+        <div class="canvas-card__head" style="background-color: #A0C4FF;">
+          <span class="canvas-card__title">Toolbox &amp; Stack</span>
+          <button type="button" class="canvas-card__close" aria-label="Close">✕</button>
+        </div>
+        <div class="canvas-card__body">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div>
+              <h5 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; margin-bottom: 6px;">AI &amp; Machine Learning</h5>
+              <div class="s-chips">
+                <span class="s-chip">Agentic AI</span>
+                <span class="s-chip">LLMs</span>
+                <span class="s-chip">RAG</span>
+                <span class="s-chip">LangGraph</span>
+                <span class="s-chip">Qdrant</span>
+                <span class="s-chip">Scikit-learn</span>
+                <span class="s-chip">PyTorch</span>
+              </div>
+            </div>
+            <div>
+              <h5 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; margin-bottom: 6px;">Languages &amp; Backend</h5>
+              <div class="s-chips">
+                <span class="s-chip">Python</span>
+                <span class="s-chip">C / C++</span>
+                <span class="s-chip">SQL</span>
+                <span class="s-chip">FastAPI</span>
+                <span class="s-chip">Flask</span>
+                <span class="s-chip">React.js</span>
+                <span class="s-chip">MongoDB</span>
+                <span class="s-chip">MySQL</span>
+              </div>
+            </div>
+            <div>
+              <h5 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; margin-bottom: 6px;">MLOps &amp; Tools</h5>
+              <div class="s-chips">
+                <span class="s-chip">Docker</span>
+                <span class="s-chip">MLflow</span>
+                <span class="s-chip">DVC</span>
+                <span class="s-chip">CI/CD</span>
+                <span class="s-chip">Pytest</span>
+                <span class="s-chip">Git</span>
+                <span class="s-chip">Linux</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Arcade Mini-Game Card -->
+      <div id="card-arcade" class="canvas-card" style="left: -10px; top: 120px; width: 440px; z-index: 14;">
+        <div class="canvas-card__head" style="background-color: #E7C6FF;">
+          <span class="canvas-card__title">🕹 Arcade: AI Systems Quiz</span>
+          <button type="button" class="canvas-card__close" aria-label="Close">✕</button>
+        </div>
+        <div class="canvas-card__body">
+          <div id="arcade-content">
+            <!-- Dynamic quiz loads here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Certifications Card -->
+      <div id="card-certs" class="canvas-card" style="left: 460px; top: 110px; width: 460px; z-index: 10;">
+        <div class="canvas-card__head" style="background-color: #D8BBFF;">
+          <span class="canvas-card__title">Verified Certifications</span>
+          <button type="button" class="canvas-card__close" aria-label="Close">✕</button>
+        </div>
+        <div class="canvas-card__body">
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
+            <li><strong>Oracle:</strong> Oracle AI Foundation Certification</li>
+            <li><strong>Google Cloud:</strong> Google Cloud Digital Leader Certification</li>
+            <li><strong>Infosys:</strong> Mastering Big Data Analytics with PySpark</li>
+            <li><strong>Microsoft:</strong> Computer Vision App with Azure Cognitive Services</li>
+            <li><strong>SwipeGen:</strong> Cloud, AI and Serverless Bootcamp</li>
+            <li><strong>Infosys:</strong> Introduction to Cloud Computing</li>
+            <li><strong>CIL:</strong> Centre of Innovation &amp; Leadership Development</li>
+            <li><strong>NPTEL:</strong> Natural Resource Management</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 7. Contact Card -->
+      <div id="card-contact" class="canvas-card" style="left: 20px; top: 480px; width: 420px; z-index: 13;">
+        <div class="canvas-card__head" style="background-color: #BFFCC6;">
+          <span class="canvas-card__title">Get In Touch</span>
+          <button type="button" class="canvas-card__close" aria-label="Close">✕</button>
+        </div>
+        <div class="canvas-card__body">
+          <p style="font-size: 0.95rem; margin-bottom: 14px;">Open for AI engineering roles and high-impact systems projects.</p>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-weight: 700; font-size: 0.9rem;">
+            <a href="mailto:aadityabr21@gmail.com" class="s-tool">✉ aadityabr21@gmail.com</a>
+            <a href="https://github.com/adi-Ra1our" target="_blank" class="s-tool">↗ github.com/adi-Ra1our</a>
+            <a href="https://linkedin.com/in/aditya-rawanawar" target="_blank" class="s-tool">↗ linkedin/in/aditya-rawanawar</a>
+            <a href="https://leetcode.com/adi-ra1our" target="_blank" class="s-tool">↗ leetcode/adi-ra1our</a>
+            <span class="s-tool">📞 +91 6363606483</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /world -->
+
+    <!-- Floating macOS Bottom Dock -->
+    <nav class="dock" aria-label="Canvas Dock">
+      <button class="dock__item" data-target="card-hero" data-open="true" title="About / Profile">
+        <span style="font-size: 1.3rem;">👤</span>
+      </button>
+      <button class="dock__item" data-target="card-work" data-open="true" title="Selected Work">
+        <span style="font-size: 1.3rem;">💼</span>
+      </button>
+      <button class="dock__item" data-target="card-experience" data-open="true" title="Experience &amp; Education">
+        <span style="font-size: 1.3rem;">📜</span>
+      </button>
+      <button class="dock__item" data-target="card-stack" data-open="true" title="Toolbox &amp; Stack">
+        <span style="font-size: 1.3rem;">⚡</span>
+      </button>
+      <button class="dock__item" data-target="card-arcade" data-open="true" title="Arcade Mini-Game">
+        <span style="font-size: 1.3rem;">🕹</span>
+      </button>
+      <button class="dock__item" data-target="card-certs" data-open="true" title="Certifications">
+        <span style="font-size: 1.3rem;">🏅</span>
+      </button>
+      <button class="dock__item" data-target="card-contact" data-open="true" title="Contact Info">
+        <span style="font-size: 1.3rem;">📫</span>
+      </button>
+      
+      <div class="dock__divider"></div>
+
+      <a class="dock__item" href="https://github.com/adi-Ra1our" target="_blank" rel="noopener noreferrer" title="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+      <a class="dock__item" href="https://linkedin.com/in/aditya-rawanawar" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </a>
+    </nav>
+
+    <!-- Zoom Controls Widget -->
+    <div class="zoom-controls">
+      <button id="btn-zoom-out" type="button" aria-label="Zoom out">−</button>
+      <button id="btn-zoom-reset" type="button" id="zoom-val" aria-label="Reset zoom">100%</button>
+      <button id="btn-zoom-in" type="button" aria-label="Zoom in">+</button>
+    </div>
+
+  </div>
+
+  <script src="canvas.js"></script>
+</body>
+</html>

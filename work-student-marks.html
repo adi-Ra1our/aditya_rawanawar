@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cream">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Marks Management System — Aditya B Rawanawar</title>
+  <meta name="description" content="Layered FastAPI backend architecture and relational database schemas by Aditya B Rawanawar.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FACC00'/><text x='50' y='65' font-family='sans-serif' font-size='50' font-weight='900' text-anchor='middle' fill='%23161616'>AR</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="bar" data-site-bar="true">
+    <div class="bar__left">
+      <a class="mark" aria-label="Home" href="index.html">AR</a>
+      <a class="bar__back" href="work.html">
+        <span aria-hidden="true">←</span>
+        <span>Work</span>
+      </a>
+    </div>
+
+    <div class="bar__right">
+      <button type="button" class="themepick" aria-label="Toggle theme" title="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+      </button>
+
+      <a class="bar__cta" href="aditya-rawanawar-resume.pdf" download="Aditya_B_Rawanawar_Resume.pdf">
+        <span>Résumé</span><span class="long"> PDF ↓</span>
+      </a>
+    </div>
+  </header>
+
+  <article class="doc">
+    <p class="doc__meta">2025 · Backend &amp; Database Architecture</p>
+    <h1>Student Marks Management System</h1>
+    <p class="doc__tag">Layered Backend Architecture &amp; Relational Schemas</p>
+    <div style="margin-bottom: 20px;">
+      <span class="case__award">🔒 High Data Integrity Enterprise Backend</span>
+    </div>
+    <p class="doc__lede">
+      A robust academic records management engine engineered with FastAPI and SQL relational databases, enforcing strict Pydantic schema validation, ACID transaction guarantees, and sub-3ms query indexing.
+    </p>
+
+    <!-- Interactive Screenshot Carousel -->
+    <div class="shots">
+      <div class="shots__track">
+        <div class="shots__slide is-active">
+          <img src="assets/projects/marks-1.svg" alt="FastAPI Swagger Schema & SQL Architecture — Slide 1">
+        </div>
+        <div class="shots__slide">
+          <img src="assets/projects/marks-2.svg" alt="PostgreSQL Relational Schema & Indexes — Slide 2">
+        </div>
+        <div class="shots__slide">
+          <img src="assets/projects/marks-3.svg" alt="Automated Pytest Suite and Validation — Slide 3">
+        </div>
+      </div>
+      <div class="shots__bar">
+        <button type="button" class="shots__btn shots__btn--prev" disabled aria-label="Previous screenshot">←</button>
+        <div class="shots__dots">
+          <button type="button" class="shots__dot is-active" aria-label="Go to slide 1"></button>
+          <button type="button" class="shots__dot" aria-label="Go to slide 2"></button>
+          <button type="button" class="shots__dot" aria-label="Go to slide 3"></button>
+        </div>
+        <span class="shots__count">1 / 3</span>
+        <button type="button" class="shots__btn shots__btn--next" aria-label="Next screenshot">→</button>
+      </div>
+    </div>
+
+    <!-- Content & Technical Deep Dive -->
+    <div class="doc__body">
+      <section>
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 20px;">What it does</h2>
+        <ul class="doc__points">
+          <li>
+            Designed a <strong>clean layered backend architecture</strong> cleanly separating presentation, service business logic, and data access layers.
+          </li>
+          <li>
+            Implemented <strong>RESTful API endpoints with FastAPI</strong> for academic records, grade transcripts, GPA calculations, and department management.
+          </li>
+          <li>
+            Enforced <strong>strict Pydantic schema validation</strong> across all incoming payloads to eliminate invalid grades, malformed student IDs, and SQL injection risks.
+          </li>
+          <li>
+            Constructed a normalized <strong>relational database schema</strong> with foreign key cascade policies, unique constraints, and atomic multi-table transactions.
+          </li>
+          <li>
+            Achieved <strong>sub-3ms query execution times</strong> through compound B-tree indexing on frequent query paths (student USN + semester + course code).
+          </li>
+          <li>
+            Built a comprehensive <strong>automated API testing suite using Pytest and HTTPX</strong> with 100% pass rate on edge boundary conditions.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Sidebar -->
+      <aside class="doc__aside">
+        <h3>Built with</h3>
+        <p>Python · FastAPI · PostgreSQL / SQLite · SQLAlchemy · Pydantic · Pytest · REST APIs</p>
+
+        <div class="doc__actions">
+          <a class="btn btn--solid" href="https://github.com/adi-Ra1our" target="_blank" rel="noopener noreferrer">
+            GitHub Repo ↗
+          </a>
+          <a class="btn btn--surface" href="mailto:aadityabr21@gmail.com">
+            Discuss Architecture ✉
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Bottom Nav -->
+    <footer class="doc__foot">
+      <a href="work-planova.html">← Previous: Planova Workspace</a>
+      <a href="work.html">Back to all work →</a>
+    </footer>
+  </article>
+
+  <!-- Footer -->
+  <footer class="foot">
+    <div class="wrap">
+      <span>Aditya B Rawanawar · Bangalore, India</span>
+      <span>Thanks for scrolling all the way down :)</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

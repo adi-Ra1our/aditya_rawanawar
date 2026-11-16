@@ -1,0 +1,72 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 750' width='100%' height='100%'>
+  <rect width='1200' height='750' fill='#12131C'/>
+  <!-- Grid -->
+  <defs>
+    <pattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'>
+      <path d='M 40 0 L 0 0 0 40' fill='none' stroke='#202234' stroke-width='1'/>
+    </pattern>
+  </defs>
+  <rect width='1200' height='750' fill='url(#grid)'/>
+  
+  <!-- Window Header -->
+  <rect x='40' y='40' width='1120' height='50' rx='10' ry='10' fill='#1E2030' stroke='#333752' stroke-width='2'/>
+  <circle cx='70' cy='65' r='7' fill='#FF5F56'/>
+  <circle cx='95' cy='65' r='7' fill='#FFBD2E'/>
+  <circle cx='120' cy='65' r='7' fill='#27C93F'/>
+  <text x='150' y='71' font-family='monospace' font-size='14' fill='#A9B1D6'>AIOps Telemetry &amp; Anomaly Detection — Edge ESP32 Stream (Port :8000)</text>
+  <rect x='1040' y='53' width='90' height='24' rx='12' fill='#27C93F' fill-opacity='0.2'/>
+  <text x='1055' y='69' font-family='monospace' font-size='12' font-weight='bold' fill='#27C93F'>● LIVE</text>
+
+  <!-- Left Stats Panel -->
+  <rect x='40' y='110' width='320' height='590' rx='12' fill='#1A1B26' stroke='#333752' stroke-width='2'/>
+  <text x='65' y='150' font-family='sans-serif' font-size='18' font-weight='bold' fill='#FACC00'>METRIC RISK SCORING</text>
+  <text x='65' y='175' font-family='sans-serif' font-size='13' fill='#9AA5CE'>Isolation Forest Real-Time Evaluation</text>
+
+  <!-- Risk Score Gauge -->
+  <rect x='65' y='200' width='270' height='100' rx='8' fill='#24283B' stroke='#414868' stroke-width='1.5'/>
+  <text x='85' y='235' font-family='sans-serif' font-size='13' fill='#A9B1D6'>Current Anomaly Index</text>
+  <text x='85' y='275' font-family='sans-serif' font-size='34' font-weight='bold' fill='#FF5F56'>0.042 <tspan font-size='16' fill='#27C93F'>[STABLE]</tspan></text>
+
+  <!-- Telemetry Parameters -->
+  <rect x='65' y='320' width='270' height='210' rx='8' fill='#24283B' stroke='#414868' stroke-width='1.5'/>
+  <text x='85' y='350' font-family='sans-serif' font-size='14' font-weight='bold' fill='#7AA2F7'>EDGE TELEMETRY (ESP32)</text>
+  <text x='85' y='385' font-family='monospace' font-size='13' fill='#C0CAF5'>CPU Temp:     46.2 °C</text>
+  <text x='85' y='415' font-family='monospace' font-size='13' fill='#C0CAF5'>Packet Jitter: 1.8 ms</text>
+  <text x='85' y='445' font-family='monospace' font-size='13' fill='#C0CAF5'>Vib Sensor:   0.012 g</text>
+  <text x='85' y='475' font-family='monospace' font-size='13' fill='#C0CAF5'>TF-IDF Logs:  348 ev/s</text>
+  <text x='85' y='505' font-family='monospace' font-size='13' fill='#27C93F'>Mistral-7B:   SYNCED</text>
+
+  <!-- Mistral LLM Insight Box -->
+  <rect x='65' y='550' width='270' height='125' rx='8' fill='#202438' stroke='#FACC00' stroke-width='1.5'/>
+  <text x='85' y='575' font-family='sans-serif' font-size='12' font-weight='bold' fill='#FACC00'>OLLAMA INCIDENT EXPLANATION</text>
+  <text x='85' y='600' font-family='sans-serif' font-size='11' fill='#C0CAF5'>No persistent hardware failure detected.</text>
+  <text x='85' y='620' font-family='sans-serif' font-size='11' fill='#C0CAF5'>Metric variance within 1.2-sigma bound.</text>
+  <text x='85' y='640' font-family='sans-serif' font-size='11' fill='#C0CAF5'>System operating in optimal corridor.</text>
+
+  <!-- Main Chart Panel -->
+  <rect x='380' y='110' width='780' height='360' rx='12' fill='#1A1B26' stroke='#333752' stroke-width='2'/>
+  <text x='410' y='150' font-family='sans-serif' font-size='18' font-weight='bold' fill='#C0CAF5'>Live Infrastructure Stream &amp; Anomaly Detection Thresholds</text>
+  
+  <!-- Wave Graph -->
+  <polyline fill='none' stroke='#333752' stroke-width='1' stroke-dasharray='4' points='410,240 1120,240'/>
+  <text x='1060' y='235' font-family='monospace' font-size='11' fill='#FF5F56'>Threshold</text>
+  
+  <path d='M 410,340 Q 480,260 550,330 T 690,300 T 830,220 T 970,310 T 1120,290' fill='none' stroke='#7AA2F7' stroke-width='3.5'/>
+  <path d='M 410,340 Q 480,260 550,330 T 690,300 T 830,220 T 970,310 T 1120,290 L 1120,430 L 410,430 Z' fill='#7AA2F7' fill-opacity='0.08'/>
+
+  <!-- Anomaly Alert Node -->
+  <circle cx='830' cy='220' r='8' fill='#FF5F56'/>
+  <circle cx='830' cy='220' r='16' fill='#FF5F56' fill-opacity='0.3'/>
+  <rect x='760' y='150' width='140' height='45' rx='6' fill='#FF5F56' stroke='#FFFFFF' stroke-width='1'/>
+  <text x='775' y='170' font-family='monospace' font-size='11' font-weight='bold' fill='#FFFFFF'>SPIKE DETECTED</text>
+  <text x='775' y='185' font-family='monospace' font-size='10' fill='#FFFFFF'>Score: 0.941 | Mitigated</text>
+
+  <!-- Bottom Log Terminal -->
+  <rect x='380' y='490' width='780' height='210' rx='12' fill='#15161E' stroke='#333752' stroke-width='2'/>
+  <text x='410' y='525' font-family='monospace' font-size='13' font-weight='bold' fill='#FACC00'>AIOPS TELEMETRY EVENT LOGS (VECTORIZED TF-IDF)</text>
+  <text x='410' y='555' font-family='monospace' font-size='12' fill='#73DACA'>[21:42:01] INFO  [fastapi.middleware] Telemetry heartbeat stream ack from ESP32 node-04</text>
+  <text x='410' y='580' font-family='monospace' font-size='12' fill='#73DACA'>[21:42:02] INFO  [vectorizer.tfidf] Ingested batch 128: vocab dim 2048, norm l2</text>
+  <text x='410' y='605' font-family='monospace' font-size='12' fill='#BB9AF7'>[21:42:03] EVAL  [isolation_forest] Estimators: 150 | Max samples: 256 | Anomaly label: -1</text>
+  <text x='410' y='630' font-family='monospace' font-size='12' fill='#E0AF68'>[21:42:04] WARN  [ollama.mistral] Root cause correlation: Transient network buffer saturation</text>
+  <text x='410' y='655' font-family='monospace' font-size='12' fill='#9ECE6A'>[21:42:05] OK    [fusion_engine] System stabilized. Status 200 OK. Zero packet loss.</text>
+</svg>

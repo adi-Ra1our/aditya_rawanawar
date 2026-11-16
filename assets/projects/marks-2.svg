@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <rect width="1200" height="750" fill="#14161F"/>
+  <defs>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#222533" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#g)"/>
+  <rect x="50" y="50" width="1100" height="55" rx="10" fill="#1F2332" stroke="#33384D" stroke-width="2"/>
+  <circle cx="80" cy="77" r="7" fill="#FF5F56"/>
+  <circle cx="105" cy="77" r="7" fill="#FFBD2E"/>
+  <circle cx="130" cy="77" r="7" fill="#27C93F"/>
+  <text x="160" y="84" font-family="monospace" font-size="14" fill="#A9B1D6">Database Layer & Query Optimization</text>
+  
+  <rect x="50" y="130" width="1100" height="570" rx="12" fill="#181B26" stroke="#33384D" stroke-width="2"/>
+  <text x="85" y="180" font-family="sans-serif" font-size="22" font-weight="bold" fill="#7AA2F7">DATABASE LAYER & QUERY OPTIMIZATION</text>
+  <text x="85" y="215" font-family="sans-serif" font-size="15" fill="#A9B1D6">Layered Architecture with SQL Schemas and Sub-3ms Indexing</text>
+  
+  <rect x="85" y="240" width="1030" height="430" rx="8" fill="#12131A" stroke="#25293A" stroke-width="1.5"/>
+  <foreignObject x="105" y="260" width="990" height="390">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="color: #C0CAF5; font-family: monospace; font-size: 13.5px; line-height: 1.65; white-space: pre-wrap;">-- PostgreSQL Relational Schema with Constraints and Indexes
+CREATE TABLE departments (
+    dept_id VARCHAR(10) PRIMARY KEY,
+    dept_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE students (
+    student_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    usn VARCHAR(10) UNIQUE NOT NULL,
+    full_name VARCHAR(120) NOT NULL,
+    department_id VARCHAR(10) REFERENCES departments(dept_id) ON DELETE RESTRICT,
+    current_semester INT CHECK (current_semester BETWEEN 1 AND 8),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE courses (
+    course_code VARCHAR(12) PRIMARY KEY,
+    course_title VARCHAR(150) NOT NULL,
+    credits INT CHECK (credits &gt; 0),
+    department_id VARCHAR(10) REFERENCES departments(dept_id)
+);
+
+CREATE TABLE marks_records (
+    record_id BIGSERIAL PRIMARY KEY,
+    student_id UUID NOT NULL REFERENCES students(student_id) ON DELETE CASCADE,
+    course_code VARCHAR(12) NOT NULL REFERENCES courses(course_code),
+    internal_score NUMERIC(5,2) CHECK (internal_score BETWEEN 0 AND 50),
+    external_score NUMERIC(5,2) CHECK (external_score BETWEEN 0 AND 50),
+    total_score NUMERIC(5,2) GENERATED ALWAYS AS (internal_score + external_score) STORED,
+    grade_letter CHAR(2) NOT NULL
+);
+
+-- Compound index for rapid transcript retrieval
+CREATE INDEX idx_student_transcript ON marks_records(student_id, course_code);</div>
+  </foreignObject>
+</svg>

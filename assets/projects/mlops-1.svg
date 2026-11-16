@@ -1,0 +1,115 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 750' width='100%' height='100%'>
+  <rect width='1200' height='750' fill='#0F141C'/>
+  <defs>
+    <pattern id='grid2' width='40' height='40' patternUnits='userSpaceOnUse'>
+      <path d='M 40 0 L 0 0 0 40' fill='none' stroke='#1C2333' stroke-width='1'/>
+    </pattern>
+  </defs>
+  <rect width='1200' height='750' fill='url(#grid2)'/>
+
+  <!-- Window Header -->
+  <rect x='40' y='40' width='1120' height='50' rx='10' ry='10' fill='#171F2E' stroke='#2A374F' stroke-width='2'/>
+  <circle cx='70' cy='65' r='7' fill='#FF5F56'/>
+  <circle cx='95' cy='65' r='7' fill='#FFBD2E'/>
+  <circle cx='120' cy='65' r='7' fill='#27C93F'/>
+  <text x='150' y='71' font-family='monospace' font-size='14' fill='#A9B1D6'>MLflow Experiment Tracking &amp; DVC Pipeline — Model: RandomForest_Classifier_v3</text>
+  <rect x='1010' y='53' width='120' height='24' rx='12' fill='#7AA2F7' fill-opacity='0.2'/>
+  <text x='1025' y='69' font-family='monospace' font-size='12' font-weight='bold' fill='#7AA2F7'>ROC-AUC: 0.916</text>
+
+  <!-- Pipeline DAG visual -->
+  <rect x='40' y='110' width='1120' height='150' rx='12' fill='#151B27' stroke='#2A374F' stroke-width='2'/>
+  <text x='65' y='140' font-family='sans-serif' font-size='16' font-weight='bold' fill='#FACC00'>DVC VERSIONED WORKFLOW DAG (Data Version Control)</text>
+
+  <!-- DAG Nodes -->
+  <!-- Node 1 -->
+  <rect x='70' y='165' width='160' height='60' rx='8' fill='#1E2638' stroke='#414868' stroke-width='1.5'/>
+  <text x='90' y='190' font-family='sans-serif' font-size='12' font-weight='bold' fill='#7AA2F7'>1. Data Ingestion</text>
+  <text x='90' y='210' font-family='monospace' font-size='11' fill='#A9B1D6'>dvc run -n ingest</text>
+  <!-- Arrow -->
+  <path d='M 230 195 L 280 195' stroke='#FACC00' stroke-width='2' marker-end='url(#arrow)'/>
+  <polygon points='280,195 272,190 272,200' fill='#FACC00'/>
+
+  <!-- Node 2 -->
+  <rect x='290' y='165' width='180' height='60' rx='8' fill='#1E2638' stroke='#414868' stroke-width='1.5'/>
+  <text x='310' y='190' font-family='sans-serif' font-size='12' font-weight='bold' fill='#7AA2F7'>2. Preprocessing &amp; Feat</text>
+  <text x='310' y='210' font-family='monospace' font-size='11' fill='#A9B1D6'>MinMax + Imputation</text>
+  <polygon points='520,195 512,190 512,200' fill='#FACC00'/>
+  <path d='M 470 195 L 520 195' stroke='#FACC00' stroke-width='2'/>
+
+  <!-- Node 3 -->
+  <rect x='530' y='165' width='180' height='60' rx='8' fill='#1E2638' stroke='#FACC00' stroke-width='2'/>
+  <text x='550' y='190' font-family='sans-serif' font-size='12' font-weight='bold' fill='#FACC00'>3. Model Training</text>
+  <text x='550' y='210' font-family='monospace' font-size='11' fill='#A9B1D6'>Random Forest, XGB</text>
+  <polygon points='760,195 752,190 752,200' fill='#FACC00'/>
+  <path d='M 710 195 L 760 195' stroke='#FACC00' stroke-width='2'/>
+
+  <!-- Node 4 -->
+  <rect x='770' y='165' width='170' height='60' rx='8' fill='#1E2638' stroke='#414868' stroke-width='1.5'/>
+  <text x='790' y='190' font-family='sans-serif' font-size='12' font-weight='bold' fill='#7AA2F7'>4. MLflow Logging</text>
+  <text x='790' y='210' font-family='monospace' font-size='11' fill='#A9B1D6'>mlflow.log_metrics</text>
+  <polygon points='990,195 982,190 982,200' fill='#FACC00'/>
+  <path d='M 940 195 L 990 195' stroke='#FACC00' stroke-width='2'/>
+
+  <!-- Node 5 -->
+  <rect x='1000' y='165' width='140' height='60' rx='8' fill='#1E2638' stroke='#27C93F' stroke-width='2'/>
+  <text x='1015' y='190' font-family='sans-serif' font-size='12' font-weight='bold' fill='#27C93F'>5. FastAPI Serve</text>
+  <text x='1015' y='210' font-family='monospace' font-size='11' fill='#A9B1D6'>Docker Container</text>
+
+  <!-- Left: ROC-AUC Chart -->
+  <rect x='40' y='280' width='550' height='420' rx='12' fill='#151B27' stroke='#2A374F' stroke-width='2'/>
+  <text x='65' y='315' font-family='sans-serif' font-size='18' font-weight='bold' fill='#C0CAF5'>ROC-AUC Evaluation Curve (Area = 0.916)</text>
+  <!-- Chart Axes -->
+  <line x1='90' y1='640' x2='530' y2='640' stroke='#414868' stroke-width='2'/>
+  <line x1='90' y1='640' x2='90' y2='350' stroke='#414868' stroke-width='2'/>
+  <text x='90' y='665' font-family='monospace' font-size='11' fill='#A9B1D6'>0.0 (False Positive Rate)                      1.0</text>
+  
+  <!-- Diagonal Baseline -->
+  <line x1='90' y1='640' x2='530' y2='350' stroke='#414868' stroke-width='1.5' stroke-dasharray='4'/>
+  
+  <!-- ROC Curve -->
+  <path d='M 90,640 C 100,430 160,370 530,350' fill='none' stroke='#FACC00' stroke-width='3.5'/>
+  <path d='M 90,640 C 100,430 160,370 530,350 L 530,640 Z' fill='#FACC00' fill-opacity='0.1'/>
+  <text x='250' y='430' font-family='monospace' font-size='14' font-weight='bold' fill='#FACC00'>ROC-AUC: 0.916</text>
+
+  <!-- Right: MLflow Metrics & Deployment -->
+  <rect x='610' y='280' width='550' height='420' rx='12' fill='#151B27' stroke='#2A374F' stroke-width='2'/>
+  <text x='635' y='315' font-family='sans-serif' font-size='18' font-weight='bold' fill='#C0CAF5'>Model Run Comparison (MLflow Server)</text>
+
+  <!-- Table Header -->
+  <rect x='635' y='340' width='500' height='35' rx='6' fill='#1E2638'/>
+  <text x='650' y='363' font-family='monospace' font-size='12' font-weight='bold' fill='#7AA2F7'>Run ID</text>
+  <text x='740' y='363' font-family='monospace' font-size='12' font-weight='bold' fill='#7AA2F7'>Algorithm</text>
+  <text x='870' y='363' font-family='monospace' font-size='12' font-weight='bold' fill='#7AA2F7'>Accuracy</text>
+  <text x='960' y='363' font-family='monospace' font-size='12' font-weight='bold' fill='#7AA2F7'>ROC-AUC</text>
+  <text x='1060' y='363' font-family='monospace' font-size='12' font-weight='bold' fill='#7AA2F7'>Status</text>
+
+  <!-- Row 1 -->
+  <rect x='635' y='385' width='500' height='45' rx='6' fill='#242D42' stroke='#FACC00' stroke-width='1.5'/>
+  <text x='650' y='412' font-family='monospace' font-size='12' fill='#FACC00'>#exp_81</text>
+  <text x='740' y='412' font-family='monospace' font-size='12' fill='#FFFFFF'>RandomForest</text>
+  <text x='870' y='412' font-family='monospace' font-size='12' fill='#27C93F'>93.4%</text>
+  <text x='960' y='412' font-family='monospace' font-size='12' font-weight='bold' fill='#FACC00'>0.916</text>
+  <text x='1060' y='412' font-family='monospace' font-size='11' fill='#27C93F'>DEPLOYED</text>
+
+  <!-- Row 2 -->
+  <rect x='635' y='440' width='500' height='45' rx='6' fill='#1B2230'/>
+  <text x='650' y='467' font-family='monospace' font-size='12' fill='#A9B1D6'>#exp_79</text>
+  <text x='740' y='467' font-family='monospace' font-size='12' fill='#A9B1D6'>XGBoost Clf</text>
+  <text x='870' y='467' font-family='monospace' font-size='12' fill='#A9B1D6'>91.2%</text>
+  <text x='960' y='467' font-family='monospace' font-size='12' fill='#A9B1D6'>0.894</text>
+  <text x='1060' y='467' font-family='monospace' font-size='11' fill='#7AA2F7'>ARCHIVED</text>
+
+  <!-- Row 3 -->
+  <rect x='635' y='495' width='500' height='45' rx='6' fill='#1B2230'/>
+  <text x='650' y='522' font-family='monospace' font-size='12' fill='#A9B1D6'>#exp_75</text>
+  <text x='740' y='522' font-family='monospace' font-size='12' fill='#A9B1D6'>Logistic Reg</text>
+  <text x='870' y='522' font-family='monospace' font-size='12' fill='#A9B1D6'>87.6%</text>
+  <text x='960' y='522' font-family='monospace' font-size='12' fill='#A9B1D6'>0.852</text>
+  <text x='1060' y='522' font-family='monospace' font-size='11' fill='#7AA2F7'>ARCHIVED</text>
+
+  <!-- Container Deployment Badge -->
+  <rect x='635' y='560' width='500' height='110' rx='8' fill='#1E2638' stroke='#2A374F' stroke-width='1.5'/>
+  <text x='655' y='590' font-family='sans-serif' font-size='14' font-weight='bold' fill='#27C93F'>DOCKER INFERENCE ENDPOINT ACTIVE</text>
+  <text x='655' y='615' font-family='monospace' font-size='12' fill='#C0CAF5'>POST /api/v1/predict  •  FastAPI Latency: 14ms</text>
+  <text x='655' y='640' font-family='monospace' font-size='12' fill='#A9B1D6'>GitHub Actions: Tests Passed [14/14] • Pytest Coverage: 96%</text>
+</svg>
