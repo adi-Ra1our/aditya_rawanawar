@@ -1,4 +1,5 @@
 # Aditya B Rawanawar
+<img align="right" src="assets/pfp/aditya.jpg" alt="Aditya B Rawanawar" width="165" />
 
 ### Artificial Intelligence & Machine Learning Engineer
 
